@@ -8,9 +8,23 @@
     <title>Document</title>
 </head>
 <body class="body" id="body">
+    <h1 class="h1">Rick & Morty APP</h1>
+    <div class="search-container">
+        <label for="search" class="search-label">Busca tu personaje</label>
+        <input type="search" class="search" placeholder="Ingresa el nombre de un personaje" id="search">
+    </div>
+    <div class="container">
+        <div class="cards-container" id="cards-container"></div>
+    </div>
 
+    <template id="template">
+        <div class="card" id="card">
+            <div class="card-header"></div>
+            <img class="card-img"></img>
+        </div>
+    </template>
 </body>
 
 <script src="app.js"></script>
-<script src="app1.js"></script>
+
 </html>

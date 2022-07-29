@@ -1,13 +1,37 @@
-/* Muestra la data por consola
-fetch("https://rickandmortyapi.com/api/character")
+const template = document.getElementById('template')
+const cardContainers = document.getElementById('cards-container')
+const searchInput = document.getElementById('search')
+
+let characters = []
+
+searchInput.addEventListener("input", e => {
+    const inputValue = e.target.value.toLowerCase()
+    // console.log(inputValue)
+    characters.forEach(character => {
+        const existe = character.name.toLowerCase().includes(inputValue) 
+        character.element.classList.toggle("noexiste", !existe)
+
+    })
+})
+
+
+fetch('https://rickandmortyapi.com/api/character')
 .then(response => response.json())
-.then(data => console.log(data.results[0].image))
-*/
+.then(data => {
+    let characters1 = data.results
+    characters = characters1.map(char => {
+        const card = template.content.cloneNode(true).children[0]
+        const header = card.querySelector('.card-header')
+        const cardImg = card.querySelector('.card-img')
 
-let rick;
+        // console.log(card)
+        // console.log(char.name)
+        header.textContent = char.name
+        cardImg.src = char.image
 
-fetch("https://rickandmortyapi.com/api/character")
-.then(response => response.json())
-.then(data => rick = data.results[0].image)
+        cardContainers.append(card)
 
-console.log(rick) // Undefined
+        return { name: char.name, element: card }
+    })
+})
+
