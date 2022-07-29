@@ -45,7 +45,7 @@ for(i = 1; i < 42; i++){
 
         cardContainers.append(card)
 
-        return { name: char.name, element: card, origin: char.origin.name, status: char.status }
+        return { element: card, name: char.name, origin: char.origin.name, status: char.status }
     })
 })
 }
