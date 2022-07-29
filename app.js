@@ -11,7 +11,6 @@ for(i = 1; i < 42; i++){
         characters.forEach(character => {
             const existe = character.name.toLowerCase().includes(inputValue) 
                             || character.origin.toLowerCase().includes(inputValue) 
-                            || character.location.toLowerCase().includes(inputValue)
                             || character.status.toLowerCase().includes(inputValue)
             character.element.classList.toggle("noexiste", !existe)
     
@@ -46,7 +45,7 @@ for(i = 1; i < 42; i++){
 
         cardContainers.append(card)
 
-        return { name: char.name, element: card, origin: char.origin.name, gender: char.gender, location: char.location.name, status: char.status }
+        return { name: char.name, element: card, origin: char.origin.name, status: char.status }
     })
 })
 }
