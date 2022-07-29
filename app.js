@@ -11,7 +11,6 @@ for(i = 1; i < 42; i++){
         characters.forEach(character => {
             const existe = character.name.toLowerCase().includes(inputValue) 
                             || character.origin.toLowerCase().includes(inputValue) 
-                            || character.gender.toLowerCase().includes(inputValue)
                             || character.location.toLowerCase().includes(inputValue)
                             || character.status.toLowerCase().includes(inputValue)
             character.element.classList.toggle("noexiste", !existe)
