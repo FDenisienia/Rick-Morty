@@ -2,22 +2,22 @@ const template = document.getElementById('template')
 const cardContainers = document.getElementById('cards-container')
 const searchInput = document.getElementById('search')
 
-let characters = []
+for(i = 1; i < 42; i++){
+    let characters = []
 
-searchInput.addEventListener("input", e => {
-    const inputValue = e.target.value.toLowerCase()
-    // console.log(inputValue)
-    characters.forEach(character => {
-        const existe = character.name.toLowerCase().includes(inputValue) 
-        character.element.classList.toggle("noexiste", !existe)
-
+    searchInput.addEventListener("input", e => {
+        const inputValue = e.target.value.toLowerCase()
+        // console.log(inputValue)
+        characters.forEach(character => {
+            const existe = character.name.toLowerCase().includes(inputValue) 
+            character.element.classList.toggle("noexiste", !existe)
+    
+        })
     })
-})
 
-
-fetch('https://rickandmortyapi.com/api/character')
-.then(response => response.json())
-.then(data => {
+    fetch(`https://rickandmortyapi.com/api/character?page=${i}`)
+    .then(response => response.json())
+    .then(data => {
     let characters1 = data.results
     characters = characters1.map(char => {
         const card = template.content.cloneNode(true).children[0]
@@ -34,4 +34,7 @@ fetch('https://rickandmortyapi.com/api/character')
         return { name: char.name, element: card }
     })
 })
+}
+
+
 
