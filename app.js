@@ -10,6 +10,10 @@ for(i = 1; i < 42; i++){
         // console.log(inputValue)
         characters.forEach(character => {
             const existe = character.name.toLowerCase().includes(inputValue) 
+                            || character.origin.toLowerCase().includes(inputValue) 
+                            || character.gender.toLowerCase().includes(inputValue)
+                            || character.location.toLowerCase().includes(inputValue)
+                            || character.status.toLowerCase().includes(inputValue)
             character.element.classList.toggle("noexiste", !existe)
     
         })
@@ -18,20 +22,32 @@ for(i = 1; i < 42; i++){
     fetch(`https://rickandmortyapi.com/api/character?page=${i}`)
     .then(response => response.json())
     .then(data => {
+     
     let characters1 = data.results
     characters = characters1.map(char => {
         const card = template.content.cloneNode(true).children[0]
         const header = card.querySelector('.card-header')
+        const location = card.querySelector('.location')
+        const origin = card.querySelector('.origin')
+        const gender = card.querySelector('.gender')
+        const especie = card.querySelector('.especie')
+        const status = card.querySelector('.status')
         const cardImg = card.querySelector('.card-img')
-
         // console.log(card)
         // console.log(char.name)
         header.textContent = char.name
+        origin.innerHTML = `Origin: ${char.origin.name}`
+        especie.innerHTML = `Specie: ${char.species}`
+        gender.innerHTML = `Gender: ${char.gender}`
+        location.innerHTML = `Location: ${char.location.name}`
+        status.innerHTML = `Status: ${char.status}`
+
+
         cardImg.src = char.image
 
         cardContainers.append(card)
 
-        return { name: char.name, element: card }
+        return { name: char.name, element: card, origin: char.origin.name, gender: char.gender, location: char.location.name, status: char.status }
     })
 })
 }
