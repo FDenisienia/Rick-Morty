@@ -145,7 +145,7 @@ body {
     display: none;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .search {
         font-size: 1rem;
         text-align: center;
