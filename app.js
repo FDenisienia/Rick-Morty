@@ -29,7 +29,7 @@ for(i = 1; i < 42; i++){
         const location = card.querySelector('.location')
         const origin = card.querySelector('.origin')
         const gender = card.querySelector('.gender')
-        const especie = card.querySelector('.especie')
+        const especie = card.querySelector('.specie')
         const status = card.querySelector('.status')
         const cardImg = card.querySelector('.card-img')
         // console.log(card)
