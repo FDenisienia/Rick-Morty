@@ -31,6 +31,7 @@ for(i = 1; i < 42; i++){
         const especie = card.querySelector('.specie')
         const status = card.querySelector('.status')
         const cardImg = card.querySelector('.card-img')
+        cardImg.setAttribute("alt", `${char.name}`)
         // console.log(card)
         // console.log(char.name)
         header.textContent = char.name
